@@ -1,14 +1,4 @@
-<?php
-    $nomeSistema = "Cursos Ai!";
-    $usuario = ["nome"=>"vinicius"];
-
-    $produtos = [
-    ["nome"=>"Curso Fulltsack","preco"=>"1200.00","duracao"=>"5 meses", "img"=>"img/fullstack.jpg"],
-    ["nome"=>"Curso Marketing","preco"=>"1000.00","duracao"=>"4 meses", "img"=>"img/fullstack.jpg"],
-    ];
-
-    $categorias = ["Cursos", "Palestras", "Artigos","item 1","item 2"];
-?>
+<?php include_once("config/variaveis.php") ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,42 +13,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="navbar">
-            <h1 id="logo">
-                <?php echo $nomeSistema; ?>
-            </h1>
-            <nav>
-                <ul class="nav">
-                    <?php if(isset($usuario) && $usuario != []) { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Curso</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Olá <?php echo $usuario['nome']; ?></a>
-                    </li>
-                    <?php } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cadastro</a>
-                    </li>
-                    <?php } ?>
-                </ul>
-            </nav>
-        </div>
-       <!--categorias -->
-       <nav class="navbar bg-dark ">
-            <ul class="nav">
-                <?php foreach($categorias as $categoria) { ?>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#"><?php echo $categoria; ?></a>
-                    </li>
-                <?php } ?>
-            </ul>   
-        </nav>
-    </header>
+
+    <?php include_once("header.php") ?>
     <main>
         <section class="container mt-4">
             <div class="row justify-content-around">
