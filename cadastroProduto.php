@@ -4,18 +4,43 @@ function cadastraProduto($nomeProduto, $descProduto, $imgProduto, $precoProduto)
     $nomeArquivo = "produto.json";
 
     if(file_exists($nomeArquivo)){
+        //abrindo e pegando informações do arquivo
+        $arquivo = file_get_contents($nomeArquivo);
+        //transformar json em array
+        $produtos = json_decode($arquivo, true);
+        //adicionando um novo produto na array
+        $produtos[] = ["nome"=>$nomeProduto, "preco"=>$precoProduto, "desc"=>$descProduto, "imgProduto"=>$imgProduto];
+        $json = json_encode($produtos);
+        //salvando o json dentro de um arquivo;
+        $deuCerto = file_put_contents($nomeArquivo, $json);
 
+        if($deuCerto){
+            return "Não é feitiçaria, é tecnologia!";
+        } else {
+            return "É leviosa, não leviosá!";
+        }
 
     }else {
         $produtos = [];
+        //array_push
         $produtos[] = ["nome"=>$nomeProduto, "preco"=>$precoProduto, "desc"=>$descProduto, "imgProduto"=>$imgProduto];
+        //transformando array em json
+        $json = json_encode($produtos);
+        //salvando o json dentro de um arquivo
+        $deuCerto = file_put_contents($nomeArquivo, $json);
 
-        var_dump($produtos);
+        if($deuCerto){
+            return "Não é feitiçaria, é tecnologia!";
+        } else {
+            return "É leviosa, não leviosá!";
+        }
+
+
     }
 }
 
 if($_POST){
-    cadastraProduto($_POST['nomeProduto'], $_POST['descProduto'], $_POST['imgProduto'],$_POST['precoProduto']);
+    echo cadastraProduto($_POST['nomeProduto'], $_POST['descProduto'], $_POST['imgProduto'],$_POST['precoProduto']);
 }
 
 ?>

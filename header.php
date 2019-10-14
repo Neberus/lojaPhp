@@ -6,7 +6,7 @@
                 <?php echo $nomeSistema; ?>
             </h1>
             <nav>
-                <ul class="nav">
+                <ul class="nav ">
                     <?php if(isset($usuario) && $usuario != []) { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Curso</a>
