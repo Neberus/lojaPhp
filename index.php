@@ -23,7 +23,7 @@
                 <?php foreach($produtos as $produto){ ?>
                     <div class="col-lg-3 card text-center">
                         <h2><?php echo $produto['nome']; ?></h2>
-                        <img src="<?php echo $produto['img']; ?>" class="card-img-top" alt="...">
+                        <img src="<?php echo $produto['imgProduto']; ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $produto['preco']; ?></h5>
                             <a href="carrinho.php?nomeProduto=<?php echo $produto['nome']; ?>" class="btn btn-primary">Comprar</a>
