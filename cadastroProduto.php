@@ -1,6 +1,6 @@
 <?php 
 
-function cadastraProduto($nomeProduto, $descProduto, $precoProduto,  $imgProduto){
+function cadastraProduto($nomeProduto, $precoProduto, $descProduto,  $imgProduto){
     $nomeArquivo = "produto.json";
 
     if(file_exists($nomeArquivo)){
@@ -45,6 +45,7 @@ if($_POST){
     $localTmp = $_FILES['imgProduto']['tmp_name'];
     $dataAtual = date("d-m-y");
     $caminhoSalvo = 'img/'.$dataAtual.$nomeImg;
+    
     
     $deuCerto = move_uploaded_file($localTmp, $caminhoSalvo);
     echo cadastraProduto($_POST['nomeProduto'], $_POST['precoProduto'], $_POST['descProduto'], $caminhoSalvo);

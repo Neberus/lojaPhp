@@ -1,9 +1,10 @@
 <?php
+session_start();
     $nomeSistema = "Cursos Ai!";
-    $usuario = ["nome"=>"vinicius"];
+    $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario']: [];
 
-    $nomeArquivo = "produto.json";
-    $produtos = json_decode(file_get_contents($nomeArquivo), true);
+        $nomeArquivo = "produto.json";
+        $produtos = json_decode(file_get_contents($nomeArquivo), true);
 
     // $produtos = [
     // ["nome"=>"Curso Fulltsack","preco"=>"1200.00","duracao"=>"5 meses", "img"=>"img/fullstack.jpg"],
