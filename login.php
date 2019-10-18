@@ -9,7 +9,7 @@ if ($_POST){
         // Validando Senha
         if(password_verify($senha, $usuario['senha'])){
             session_start();
-            $_SESSION['usuario'] = ["nome"=>"Yuri"];''
+            $_SESSION['usuario'] = ["nome"=>"Yuri"];
             header('Location:index.php');
 
         }else {
